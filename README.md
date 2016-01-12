@@ -1,10 +1,11 @@
 # reduxt
 
 ### Run:
-
->  git clone https://github.com/ingf/reduxt.git
->  cd reduxt
->  npm install
+```
+git clone https://github.com/ingf/reduxt.git
+cd reduxt
+npm install
+```
 
 ### Develop on iOS
 
