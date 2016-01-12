@@ -8,8 +8,6 @@ const {
   View
 } = React
 
-import Item  from './Item';
-
 const Groceries = React.createClass({
   getInitialState: function() {
     return {
