@@ -1,19 +1,14 @@
 const { bindActionCreators } = require('redux')
 const { connect } = require('react-redux/native')
 const Groceries = require('../components/Groceries')
-const ItemsActions = require('../actions/items')
+const actions = require('../../src/actions')
 
 function mapStateToProps(state) {
-  return {
-    onlineItems: state.items.onlineList,
-    offlineItems: state.items.offlineList,
-    connectionChecked: state.items.connectionChecked,
-    connected: state.items.connected
-  }
+  return state
 }
 
 function mapDispatchToProps(dispatch) {
-  return bindActionCreators(ItemsActions, dispatch)
+  return bindActionCreators(actions, dispatch)
 }
 
 module.exports = connect(mapStateToProps, mapDispatchToProps)(Groceries)

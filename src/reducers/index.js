@@ -1,8 +1,11 @@
-const { combineReducers } = require('redux')
-const items = require('./items')
+import {
+    combineReducers
+}
+from 'redux'
+import todos from './todos'
 
 const rootReducer = combineReducers({
-  items
+    todos
 })
 
-module.exports = rootReducer
+export default rootReducer

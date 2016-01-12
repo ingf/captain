@@ -20,7 +20,7 @@ const Groceries = React.createClass({
   render: function() {
     return (
       <Text style={styles.container}>
-        asdf
+        haha
       </Text>
     )
   }

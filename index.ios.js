@@ -1,6 +1,6 @@
 const React = require('react-native')
 const { Provider } = require('react-redux/native')
-const App = require('./src/containers/App')
+const App = require('./ios/containers/App')
 const configureStore = require('./src/store/configureStore')
 
 const {
