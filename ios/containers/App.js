@@ -1,14 +1,20 @@
-const { bindActionCreators } = require('redux')
-const { connect } = require('react-redux/native')
-const Groceries = require('../components/Groceries')
+const {
+    bindActionCreators
+} = require('redux')
+const {
+    connect
+} = require('react-redux/native')
+const Root = require('../components')
 const actions = require('../../src/actions')
 
 function mapStateToProps(state) {
-  return state
+    return state
 }
 
 function mapDispatchToProps(dispatch) {
-  return bindActionCreators(actions, dispatch)
+    return {
+        actions: bindActionCreators(actions, dispatch)
+    }
 }
 
-module.exports = connect(mapStateToProps, mapDispatchToProps)(Groceries)
+module.exports = connect(mapStateToProps, mapDispatchToProps)(Root)
