@@ -19,7 +19,7 @@ const Root = React.createClass({
         return (
             <View style={styles.container}>
                 <Header addTodo={actions.addTodo}></Header>
-                <MainSection todos={this.props.todos}></MainSection>
+                <MainSection todos={this.props.todos} actions={actions}></MainSection>
             </View>
         )
     }

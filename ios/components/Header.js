@@ -6,6 +6,7 @@ import React, {
     TextInput
 }
 from 'react-native';
+import TodoTextInput from './TodoTextInput';
 
 export default class Header extends Component {
 
@@ -19,11 +20,11 @@ export default class Header extends Component {
                 <Text>
                     todos   
                 </Text>
-                <TextInput
-                    style={{height: 40, borderColor: 'gray', borderWidth: 1}}
+                <TodoTextInput
+                    newTodo
                     placeholder="What needs to be done?"
-                    onChangeText={this.onChangeText.bind(this)}
-                ></TextInput>
+                    onSave={this.onChangeText.bind(this)}
+                ></TodoTextInput>
             </View>
         )
     }
