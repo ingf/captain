@@ -16,5 +16,4 @@ function mapDispatchToProps(dispatch) {
         actions: bindActionCreators(actions, dispatch)
     }
 }
-
 module.exports = connect(mapStateToProps, mapDispatchToProps)(Root)
