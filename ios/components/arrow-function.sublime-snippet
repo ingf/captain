@@ -1,7 +1,0 @@
-<snippet>
-  <content><![CDATA[(${1:item}, ${2:i}) => {
-        ${3}
-    }
-]]></content>
-  <tabTrigger>arrf</tabTrigger>
-</snippet>

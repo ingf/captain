@@ -5,7 +5,7 @@ import React, {
     Image,
     TextInput
 }
-from 'react-native';
+from 'react-native'
 // import classnames from 'classnames'
 
 export default class TodoTextInput extends Component {

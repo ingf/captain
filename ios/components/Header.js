@@ -5,8 +5,8 @@ import React, {
     Image,
     TextInput
 }
-from 'react-native';
-import TodoTextInput from './TodoTextInput';
+from 'react-native'
+import TodoTextInput from './TodoTextInput'
 
 export default class Header extends Component {
 
@@ -24,7 +24,7 @@ export default class Header extends Component {
                     newTodo
                     placeholder="What needs to be done?"
                     onSave={this.onChangeText.bind(this)}
-                ></TodoTextInput>
+                />
             </View>
         )
     }

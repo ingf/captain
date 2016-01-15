@@ -5,17 +5,17 @@ import React, {
     Image,
     StyleSheet
 }
-from 'react-native';
+from 'react-native'
 
-import Header from './Header';
-import MainSection from './MainSection';
+import Header from './Header'
+import MainSection from './MainSection'
 
 const Root = React.createClass({
     componentWillMount: function() {
-        console.log(this);
+        console.log(this.props)
     },
     render: function() {
-        let actions = this.props.actions;
+        let actions = this.props.actions
         return (
             <View style={styles.container}>
                 <Header addTodo={actions.addTodo}></Header>
