@@ -1,8 +1,9 @@
 import React, {
-    Component, View, Text
+    Component, View, Text,
 }
 from 'react-native'
 import TodoTextInput from './TodoTextInput'
+var Swipeout = require('react-native-swipeout')
 
 
 export default class TodoItem extends Component {
@@ -13,13 +14,7 @@ export default class TodoItem extends Component {
         }
     }
 
-    handlePress() {
-        this.setState({
-            editing: true
-        })
-    }
-
-    hadnleSave(id, text) {
+    handleSave(id, text) {
         let {
             actions
         } = this.props
@@ -36,8 +31,10 @@ export default class TodoItem extends Component {
 
     render() {
         let {
-            todo
+            todo, actions
         } = this.props
+
+        let that = this
 
         let element
         if (this.state.editing) {
@@ -45,19 +42,47 @@ export default class TodoItem extends Component {
                 <TodoTextInput
                     text={todo.text}
                     editing={this.state.editing}
-                    onSave={text => this.hadnleSave(todo.id, text)}
+                    onSave={text => this.handleSave(todo.id, text)}
                 />
             )
         } else {
             element = (
-                <Text onPress={this.handlePress.bind(this)}>{todo.text}</Text>
+                <Text>
+                    {todo.text}
+                </Text>
             )
         }
 
+        let swipeoutBtns = [{
+            text: 'Edit',
+            backgroundColor: '#aaa',
+            onPress: () => {
+                that.setState({
+                    editing: true
+                })
+            }
+        }, {
+            text: 'Delete',
+            backgroundColor: '#0f0',
+            onPress: (data) => {
+                actions.deleteTodo(todo.id)
+            }
+        }, {
+            text: todo.completed ? 'UnDo' : 'Do',
+            backgroundColor: '#f00',
+            onPress: (data) => {
+                actions.completeTodo(todo.id)
+            }
+        }]
+
         return (
-            <View>
+            <Swipeout
+                autoClose={true}
+                close={true}
+                right={swipeoutBtns}
+            >
                 {element}
-            </View>
+            </Swipeout>
         )
     }
 }
