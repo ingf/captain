@@ -3,8 +3,7 @@ import React, {
 }
 from 'react-native'
 import TodoTextInput from './TodoTextInput'
-var Swipeout = require('react-native-swipeout')
-
+import Swipeout from 'react-native-swipeout'
 
 export default class TodoItem extends Component {
     constructor(props, context) {
@@ -24,19 +23,26 @@ export default class TodoItem extends Component {
         } else {
             actions.editTodo(id, text)
         }
+
         this.setState({
             editing: false
         })
+    }
+
+    componentDidMount() {
+        setTimeout(() => {
+
+            this.refs.swipeout._close();
+        }, 2000)
     }
 
     render() {
         let {
             todo, actions
         } = this.props
-
         let that = this
-
         let element
+
         if (this.state.editing) {
             element = (
                 <TodoTextInput
@@ -76,7 +82,7 @@ export default class TodoItem extends Component {
         }]
 
         return (
-            <Swipeout
+            <Swipeout ref="swipeout"
                 autoClose={true}
                 close={true}
                 right={swipeoutBtns}
