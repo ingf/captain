@@ -5,7 +5,7 @@ module.exports = {
     devtool: 'cheap-module-eval-source-map',
     entry: [
         'webpack-hot-middleware/client',
-        './h5/index'
+        './index.h5'
     ],
     output: {
         path: path.join(__dirname, 'h5/static'),
@@ -31,10 +31,9 @@ module.exports = {
     }
 }
 
-
 // When inside Redux repo, prefer src to compiled version.
 // You can safely delete these lines in your project.
-var reduxSrc = path.join(__dirname, '..', '..', 'src')
+var reduxSrc = path.join(__dirname, '..', '..', 'app')
 var reduxNodeModules = path.join(__dirname, '..', '..', 'node_modules')
 var fs = require('fs')
 if (fs.existsSync(reduxSrc) && fs.existsSync(reduxNodeModules)) {
@@ -42,7 +41,7 @@ if (fs.existsSync(reduxSrc) && fs.existsSync(reduxNodeModules)) {
     module.exports.resolve = {
             alias: {
                 'redux': reduxSrc,
-                'app': path.join(__dirname, 'src')
+                'app': path.join(__dirname, 'app')
             }
         }
         // Compile Redux from source
@@ -53,9 +52,8 @@ if (fs.existsSync(reduxSrc) && fs.existsSync(reduxNodeModules)) {
     })
 }
 
-
 module.exports.resolve = {
     alias: {
-        'app': path.join(__dirname, 'src')
+        'app': path.join(__dirname, 'app')
     }
 }

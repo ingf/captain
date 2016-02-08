@@ -7,7 +7,11 @@ cd reduxt
 npm install
 ```
 
-### Develop on iOS
+### Develop for iOS
 
 open ios/reduxt.xcodeproj
 This will launch Xcode. Just choose a device a press run.
+
+### Develop for web
+
+npm run web

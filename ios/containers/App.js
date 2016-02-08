@@ -5,7 +5,7 @@ const {
     connect
 } = require('react-redux/native')
 const Root = require('../components')
-const actions = require('../../src/actions')
+const actions = require('../../app/actions')
 
 function mapStateToProps(state) {
     return state

@@ -15,7 +15,7 @@ app.use(webpackDevMiddleware(compiler, {
 app.use(webpackHotMiddleware(compiler))
 
 app.get("/", function(req, res) {
-    res.sendFile(__dirname + '/h5/index.html')
+    res.sendFile(__dirname + '/index.html')
 })
 
 app.listen(port, function(error) {

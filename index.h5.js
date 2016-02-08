@@ -8,9 +8,9 @@ import {
     Provider
 }
 from 'react-redux'
-import App from './containers/App'
+import App from './h5/containers/App'
 import configureStore from 'app/store/configureStore'
-import './style/index.css'
+import './h5/style/index.css'
 
 const store = configureStore()
 
