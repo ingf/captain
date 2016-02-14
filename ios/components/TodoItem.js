@@ -37,14 +37,14 @@ export default class TodoItem extends Component {
     // }
 
     componentWillMount() {
-        this._panResponder = PanResponder.create({
-            onStartShouldSetPanResponder: () => true,
-            onMoveShouldSetPanResponder: () => true,
-            onPanResponderGrant: this._highlight.bind(this),
-            onPanResponderMove: this._handlePanResponderMove.bind(this),
-            onPanResponderRelease: this._handlePanResponderEnd.bind(this),
-            onPanResponderTerminate: this._handlePanResponderEnd.bind(this),
-        })
+        // this._panResponder = PanResponder.create({
+        //     onStartShouldSetPanResponder: () => true,
+        //     onMoveShouldSetPanResponder: () => true,
+        //     onPanResponderGrant: this._highlight.bind(this),
+        //     onPanResponderMove: this._handlePanResponderMove.bind(this),
+        //     onPanResponderRelease: this._handlePanResponderEnd.bind(this),
+        //     onPanResponderTerminate: this._handlePanResponderEnd.bind(this),
+        // })
     }
 
     _highlight(e, gestureState) {
@@ -75,11 +75,14 @@ export default class TodoItem extends Component {
                 />
             )
         } else {
+            let item = [styles.item]
+            if (todo.completed) {
+                item.push({textDecorationLine: 'line-through'})
+            }
             element = (
                 <View 
-                    {...this._panResponder.panHandlers}
                     >
-                    <Text style={styles.item}>
+                    <Text style={item}>
                         {todo.text}
                     </Text>
                 </View>
@@ -108,20 +111,20 @@ export default class TodoItem extends Component {
             }
         }]
 
-        // return (
-        //     <Swipeout ref="swipeout"
-        //         autoClose={true}
-        //         close={true}
-        //         right={swipeoutBtns}
-        //     >
-        //         {element}
-        //     </Swipeout>
-        // )
-        return element
+        return (
+            <Swipeout ref="swipeout"
+                autoClose={true}
+                close={true}
+                right={swipeoutBtns}
+            >
+                {element}
+            </Swipeout>
+        )
+        // return element
     }
 }
 
-const styles = StyleSheet.create({
+let styles = StyleSheet.create({
     item: {
         height: 35,
         padding: 6,
