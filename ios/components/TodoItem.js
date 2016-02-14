@@ -1,5 +1,6 @@
 import React, {
-    Component, View, Text,
+    PanResponder,
+    StyleSheet, Component, View, Text,
 }
 from 'react-native'
 import TodoTextInput from './TodoTextInput'
@@ -29,11 +30,33 @@ export default class TodoItem extends Component {
         })
     }
 
-    componentDidMount() {
-        setTimeout(() => {
+    // componentDidMount() {
+    //     // setTimeout(() => {
+    //     //     this.refs.swipeout._close()
+    //     // }, 2000)
+    // }
 
-            this.refs.swipeout._close();
-        }, 2000)
+    componentWillMount() {
+        this._panResponder = PanResponder.create({
+            onStartShouldSetPanResponder: () => true,
+            onMoveShouldSetPanResponder: () => true,
+            onPanResponderGrant: this._highlight.bind(this),
+            onPanResponderMove: this._handlePanResponderMove.bind(this),
+            onPanResponderRelease: this._handlePanResponderEnd.bind(this),
+            onPanResponderTerminate: this._handlePanResponderEnd.bind(this),
+        })
+    }
+
+    _highlight(e, gestureState) {
+        console.log(e, gestureState)
+    }
+
+    _handlePanResponderMove(e, gestureState) {
+        console.log(gestureState.moveY, gestureState.y0, gestureState.dy, gestureState.vy)        
+    }
+
+    _handlePanResponderEnd(e, gestureState) {
+        console.log('end');
     }
 
     render() {
@@ -53,9 +76,13 @@ export default class TodoItem extends Component {
             )
         } else {
             element = (
-                <Text>
-                    {todo.text}
-                </Text>
+                <View 
+                    {...this._panResponder.panHandlers}
+                    >
+                    <Text style={styles.item}>
+                        {todo.text}
+                    </Text>
+                </View>
             )
         }
 
@@ -81,14 +108,23 @@ export default class TodoItem extends Component {
             }
         }]
 
-        return (
-            <Swipeout ref="swipeout"
-                autoClose={true}
-                close={true}
-                right={swipeoutBtns}
-            >
-                {element}
-            </Swipeout>
-        )
+        // return (
+        //     <Swipeout ref="swipeout"
+        //         autoClose={true}
+        //         close={true}
+        //         right={swipeoutBtns}
+        //     >
+        //         {element}
+        //     </Swipeout>
+        // )
+        return element
     }
 }
+
+const styles = StyleSheet.create({
+    item: {
+        height: 35,
+        padding: 6,
+        paddingLeft: 20,
+    },
+})

@@ -1,4 +1,5 @@
 import React, {
+    StyleSheet,
     Component,
     View,
     ListView,
@@ -6,6 +7,7 @@ import React, {
 }
 from 'react-native'
 import TodoItem from './TodoItem'
+
 
 export default class MainSection extends Component {
     constructor(props, context) {
@@ -23,9 +25,10 @@ export default class MainSection extends Component {
         return (
             <View>
                 {this.props.todos.map((item, i) => {
-                    return <TodoItem key={i} todo={item} actions={actions}/>
+                    return <TodoItem key={i} todo={item} actions={actions}  />
                 })}
             </View>
         )
     }
 }
+
