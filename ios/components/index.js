@@ -45,11 +45,13 @@ class Root extends Component {
         let main
         if(this.state.newTodo) {
             main = (
-                <TodoTextInput
-                    newTodo
-                    placeholder="Pull To Add Task"
-                    addTodo={this.onSave.bind(this)}>
-                </TodoTextInput>
+                <View style={styles.container}>
+                    <TodoTextInput
+                        newTodo
+                        placeholder="Pull To Add Task"
+                        onSave={this.onSave.bind(this)}>
+                    </TodoTextInput>
+                </View>
             )
         }else{
             main = (
@@ -73,13 +75,14 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         flexDirection:'column',
+        paddingTop: 20,
     },
     list: {
         flex: 1,
     },
     add: {
-        height: 100,
-        fontSize:80,
+        height: 80,
+        fontSize:60,
         fontWeight:'100',
         textAlign: 'center',
     },

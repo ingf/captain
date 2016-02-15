@@ -30,35 +30,6 @@ export default class TodoItem extends Component {
         })
     }
 
-    // componentDidMount() {
-    //     // setTimeout(() => {
-    //     //     this.refs.swipeout._close()
-    //     // }, 2000)
-    // }
-
-    componentWillMount() {
-        // this._panResponder = PanResponder.create({
-        //     onStartShouldSetPanResponder: () => true,
-        //     onMoveShouldSetPanResponder: () => true,
-        //     onPanResponderGrant: this._highlight.bind(this),
-        //     onPanResponderMove: this._handlePanResponderMove.bind(this),
-        //     onPanResponderRelease: this._handlePanResponderEnd.bind(this),
-        //     onPanResponderTerminate: this._handlePanResponderEnd.bind(this),
-        // })
-    }
-
-    _highlight(e, gestureState) {
-        console.log(e, gestureState)
-    }
-
-    _handlePanResponderMove(e, gestureState) {
-        console.log(gestureState.moveY, gestureState.y0, gestureState.dy, gestureState.vy)        
-    }
-
-    _handlePanResponderEnd(e, gestureState) {
-        console.log('end');
-    }
-
     render() {
         let {
             todo, actions
@@ -77,7 +48,10 @@ export default class TodoItem extends Component {
         } else {
             let item = [styles.item]
             if (todo.completed) {
-                item.push({textDecorationLine: 'line-through'})
+                item.push({
+                    textDecorationLine: 'line-through',
+                    color: '#bbb',
+                })
             }
             element = (
                 <View 
@@ -91,7 +65,7 @@ export default class TodoItem extends Component {
 
         let swipeoutBtns = [{
             text: 'Edit',
-            backgroundColor: '#aaa',
+            backgroundColor: '#0f0',
             onPress: () => {
                 that.setState({
                     editing: true
@@ -99,7 +73,7 @@ export default class TodoItem extends Component {
             }
         }, {
             text: 'Delete',
-            backgroundColor: '#0f0',
+            backgroundColor: '#aaa',
             onPress: (data) => {
                 actions.deleteTodo(todo.id)
             }
@@ -112,22 +86,25 @@ export default class TodoItem extends Component {
         }]
 
         return (
-            <Swipeout ref="swipeout"
-                autoClose={true}
-                close={true}
-                right={swipeoutBtns}
-            >
+                <Swipeout ref="swipeout"
+                    autoClose={true}
+                    close={true}
+                    right={swipeoutBtns}
+                    backgroundColor="#fff"
+                >
                 {element}
             </Swipeout>
-        )
-        // return element
+            )
+            // return element
     }
 }
 
 let styles = StyleSheet.create({
     item: {
-        height: 35,
-        padding: 6,
+        height: 48,
+        padding: 12,
         paddingLeft: 20,
+        fontSize: 18,
+        fontWeight: '200'
     },
 })

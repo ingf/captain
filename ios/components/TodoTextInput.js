@@ -3,7 +3,8 @@ import React, {
     View,
     Text,
     Image,
-    TextInput
+    TextInput,
+    StyleSheet,
 }
 from 'react-native'
     // import classnames from 'classnames'
@@ -17,36 +18,51 @@ export default class TodoTextInput extends Component {
     }
 
     handleSubmit(e) {
-        this.props.addTodo(this.state.text)
-        if (this.props.newTodo) {
-            this.setState({
-                text: ''
-            })
-        }
+        this.props.onSave(this.state.text)
     }
 
     handleChange(text) {
+        console.log('change');
         this.setState({
             text: text
         })
     }
 
     handleBlur(e) {
+        console.log('blur');
         if (!this.props.newTodo) {
-            this.props.addTodo(this.state.text)
+            this.props.onSave(this.state.text)
         }
     }
 
     render() {
         return (
-            <TextInput
-                style={{height: 40, paddingLeft: 20, borderWidth:1, borderColor: '#aaa'}}
-                placeholder={this.props.placeholder}
-                value={this.state.text}
-                onBlur={this.handleBlur.bind(this)}
-                onChangeText={this.handleChange.bind(this)}
-                onEndEditing={this.handleSubmit.bind(this)} 
-            />
+            <View style={styles.inputContainer}>
+                <TextInput
+                    style={styles.input}
+                    placeholder={this.props.placeholder}
+                    value={this.state.text}
+                    onBlur={this.handleBlur.bind(this)}
+                    onChangeText={this.handleChange.bind(this)}
+                    onEndEditing={this.handleSubmit.bind(this)} 
+                />
+            </View>
         )
     }
 }
+
+let styles = StyleSheet.create({
+    inputContainer: {
+        marginLeft: 20,
+        marginRight: 20,
+        borderBottomWidth: 1,
+        borderColor: '#ddd',
+    },
+    input: {
+        height: 47,
+        paddingTop: 12,
+        paddingBottom: 12,
+        fontSize: 18,
+        fontWeight: '200',
+    },
+})
