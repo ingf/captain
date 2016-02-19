@@ -18,6 +18,10 @@ app.get("/", function(req, res) {
     res.sendFile(__dirname + '/index.html')
 })
 
+app.get("/test", function(req, res) {
+    res.sendFile(__dirname + '/test/index.html')
+})
+
 app.listen(port, function(error) {
     if (error) {
         console.error(error)
