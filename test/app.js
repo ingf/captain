@@ -5,12 +5,11 @@ import {
 from 'redux'
 import thunk from 'redux-thunk'
 import createLogger from 'redux-logger'
-import * as actions from 'app/actions'
-import reducer from 'app/reducers'
+import * as actions from '../app/actions'
+import reducer from '../app/reducers'
 
 const logger = createLogger({
   level: 'info',
-  logger: console,
   collapsed: true
 })
 const createStoreWithMiddleware = applyMiddleware(
