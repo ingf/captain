@@ -1,0 +1,18 @@
+{
+  // The plugin looks for a .jsbeautifyrc file in the same directory as the
+  // source file you're prettifying (or any directory above if it doesn't exist,
+  // or in your home folder if everything else fails) and uses those options
+  // along the default ones.
+
+  // Details: https://github.com/victorporof/Sublime-HTMLPrettify#using-your-own-jsbeautifyrc-options
+  // Documentation: https://github.com/einars/js-beautify/
+  "html": {
+    "indent_size": 2 // Indentation size
+  },
+  "css": {
+    "indent_size": 2 // Indentation size
+  },
+  "js": {
+    "indent_size": 2 // Indentation size
+  }
+}
