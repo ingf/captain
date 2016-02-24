@@ -5,7 +5,7 @@ var config = require('./webpack.config')
 var exec = require('child_process').exec
 
 var app = new(require('express'))()
-var port = 3000
+var port = 9527
 
 var compiler = webpack(config)
 app.use(webpackDevMiddleware(compiler, {
