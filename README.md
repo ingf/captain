@@ -1,5 +1,11 @@
 # caption
 
+### Requirements
+install React-Native
+```
+npm install -g react-native-cli
+```
+
 ### Run:
 ```
 git clone https://github.com/ingf/caption.git 
