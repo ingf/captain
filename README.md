@@ -5,6 +5,7 @@ install React-Native
 ```
 npm install -g react-native-cli
 ```
+[React-Native getting startd](http://facebook.github.io/react-native/docs/getting-started.html)
 
 ### Run:
 ```
