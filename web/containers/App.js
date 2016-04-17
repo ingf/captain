@@ -22,19 +22,15 @@ App.propTypes = {
   actions: PropTypes.object.isRequired
 }
 
-function mapStateToProps(state) {
-  return {
-    todos: state.todos
-  }
-}
-
-function mapDispatchToProps(dispatch) {
-  return {
-    actions: bindActionCreators(TodoActions, dispatch)
-  }
-}
-
 export default connect(
-  mapStateToProps,
-  mapDispatchToProps
+  (state) => {
+    return {
+      todos: state.todos
+    }
+  },
+  (dispatch) => {
+    return {
+      actions: bindActionCreators(TodoActions, dispatch)
+    }
+  }
 )(App)

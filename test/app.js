@@ -15,13 +15,18 @@ const logger = createLogger({
 const createStoreWithMiddleware = applyMiddleware(
   thunk, logger
 )(createStore)
-let initialState = {}
+const initialState = {}
 const store = createStoreWithMiddleware(reducer, initialState)
 
 // 发起一系列 action
 store.dispatch(actions.addTodo('Learn about actions'))
+console.log('\n\n')
 store.dispatch(actions.addTodo('Learn about reducers'))
+console.log('\n\n')
 store.dispatch(actions.addTodo('Learn about store'))
+console.log('\n\n')
 store.dispatch(actions.completeTodo(0))
+console.log('\n\n')
 store.dispatch(actions.completeTodo(1))
+console.log('\n\n')
 store.dispatch(actions.clearCompleted())

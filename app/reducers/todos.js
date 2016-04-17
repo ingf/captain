@@ -1,13 +1,12 @@
 import { ADD_TODO, DELETE_TODO, EDIT_TODO, COMPLETE_TODO, COMPLETE_ALL, CLEAR_COMPLETED } from '../constants/ActionTypes'
 
-// const initialState = [{
-//   text: 'Use Redux',
-//   completed: false,
-//   id: 0
-// }]
-const initialState = []
+const initialState = [{
+  text: 'Learn about actions',
+  completed: false,
+  id: 0
+}]
 
-export default function todos(state = initialState, action) {
+export default function reducer(state = initialState, action) {
   switch (action.type) {
     case ADD_TODO:
       return [{

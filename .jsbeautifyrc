@@ -13,6 +13,7 @@
     "indent_size": 2 // Indentation size
   },
   "js": {
+    "e4x": true, // Pass E4X xml literals through untouched
     "indent_size": 2 // Indentation size
   }
 }
