@@ -1,10 +1,10 @@
-# caption
+# captain
 
 [doc](https://github.com/ingf/ingf.github.io/issues/3)
 ### Run:
 ```
-git clone https://github.com/ingf/caption.git 
-cd caption
+git clone https://github.com/ingf/captain.git 
+cd captain
 npm install
 rm -rf node_modules/react-native/node_modules/fbjs
 
