@@ -1,13 +1,12 @@
-import React, {
-    Component,
+import React, { Component } from 'react'
+import {
     View,
     Text,
     Image,
     StyleSheet,
     processColor,
     StatusBarIOS,
-}
-from 'react-native'
+} from 'react-native'
 
 import TodoTextInput from './TodoTextInput'
 import MainSection from './MainSection'
@@ -27,43 +26,44 @@ class Root extends Component {
     }
 
     onSave(text) {
-        let {actions} = this.props
+        let { actions } = this.props
         this.setState({
-            newTodo:false,
+            newTodo: false,
         })
         actions.addTodo(text)
     }
 
     onAdd() {
         this.setState({
-            newTodo: true
+            newTodo: true,
         })
     }
 
     render() {
-        let {actions} = this.props
+        let { actions } = this.props
         let main
-        if(this.state.newTodo) {
+        if (this.state.newTodo) {
             main = (
                 <View style={styles.container}>
                     <TodoTextInput
                         newTodo
                         placeholder="Pull To Add Task"
-                        onSave={this.onSave.bind(this)}>
-                    </TodoTextInput>
+                        onSave={this.onSave.bind(this)}
+                    />
                 </View>
             )
-        }else{
+        } else {
             main = (
                 <View style={styles.container}>
                     <View style={styles.list}>
                         <MainSection
-                            todos={this.props.todos} 
+                            todos={this.props.todos}
                             actions={actions}
-                        >
-                        </MainSection>
+                        />
                     </View>
-                    <Text style={styles.add} onPress={this.onAdd.bind(this)}>+</Text>
+                    <Text style={styles.add} onPress={this.onAdd.bind(this)}>
+                        +
+                    </Text>
                 </View>
             )
         }
@@ -74,7 +74,7 @@ class Root extends Component {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        flexDirection:'column',
+        flexDirection: 'column',
         paddingTop: 20,
     },
     list: {
@@ -82,8 +82,8 @@ const styles = StyleSheet.create({
     },
     add: {
         height: 80,
-        fontSize:60,
-        fontWeight:'100',
+        fontSize: 60,
+        fontWeight: '100',
         textAlign: 'center',
     },
 })

@@ -19,18 +19,18 @@ class App extends Component {
 
 App.propTypes = {
   todos: PropTypes.array.isRequired,
-  actions: PropTypes.object.isRequired
+  actions: PropTypes.object.isRequired,
 }
 
 export default connect(
-  (state) => {
+  state => {
     return {
-      todos: state.todos
+      todos: state.todos,
     }
   },
-  (dispatch) => {
+  dispatch => {
     return {
-      actions: bindActionCreators(TodoActions, dispatch)
+      actions: bindActionCreators(TodoActions, dispatch),
     }
-  }
+  },
 )(App)
