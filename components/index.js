@@ -8,8 +8,8 @@ import {
   // StatusBarIOS,
 } from 'react-native'
 
-// import TodoTextInput from './TodoTextInput'
-// import MainSection from './MainSection'
+import TodoTextInput from './TodoTextInput'
+import MainSection from './MainSection'
 
 const CIRCLE_HIGHLIGHT_COLOR = 'green'
 
@@ -39,41 +39,41 @@ class Root extends Component {
     })
   }
 
-  render() {
-    console.log(this.props)
-    return (
-      <View>
-        <Text>hello</Text>
-      </View>
-    )
-  }
   // render() {
-  //   let { actions } = this.props
-  //   let main
-  //   if (this.state.newTodo) {
-  //     main = (
-  //       <View style={styles.container}>
-  //         <TodoTextInput
-  //           newTodo
-  //           placeholder="Pull To Add Task"
-  //           onSave={this.onSave.bind(this)}
-  //         />
-  //       </View>
-  //     )
-  //   } else {
-  //     main = (
-  //       <View style={styles.container}>
-  //         <View style={styles.list}>
-  //           <MainSection todos={this.props.todos} actions={actions} />
-  //         </View>
-  //         <Text style={styles.add} onPress={this.onAdd.bind(this)}>
-  //           +
-  //         </Text>
-  //       </View>
-  //     )
-  //   }
-  //   return main
+  //   console.log(this.props)
+  //   return (
+  //     <View>
+  //       <Text>hello</Text>
+  //     </View>
+  //   )
   // }
+  render() {
+    let { actions } = this.props
+    let main
+    if (this.state.newTodo) {
+      main = (
+        <View style={styles.container}>
+          <TodoTextInput
+            newTodo
+            placeholder="Pull To Add Task"
+            onSave={this.onSave.bind(this)}
+          />
+        </View>
+      )
+    } else {
+      main = (
+        <View style={styles.container}>
+          <View style={styles.list}>
+            <MainSection todos={this.props.todos} actions={actions} />
+          </View>
+          <Text style={styles.add} onPress={this.onAdd.bind(this)}>
+            +
+          </Text>
+        </View>
+      )
+    }
+    return main
+  }
 }
 
 const styles = StyleSheet.create({

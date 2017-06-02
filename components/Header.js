@@ -1,12 +1,5 @@
 import React, { Component } from 'react'
-import {
-  PanResponder,
-  Component,
-  View,
-  Text,
-  Image,
-  TextInput,
-} from 'react-native'
+import { PanResponder, View, Text, Image, TextInput } from 'react-native'
 
 import TodoTextInput from './TodoTextInput'
 

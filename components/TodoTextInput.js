@@ -1,19 +1,12 @@
-import React, {
-    Component,
-    View,
-    Text,
-    Image,
-    TextInput,
-    StyleSheet,
-}
-from 'react-native'
-    // import classnames from 'classnames'
+import React, { Component } from 'react'
+import { View, Text, Image, TextInput, StyleSheet } from 'react-native'
+// import classnames from 'classnames'
 
 export default class TodoTextInput extends Component {
     constructor(props, context) {
         super(props, context)
         this.state = {
-            text: this.props.text || ''
+            text: this.props.text || '',
         }
     }
 
@@ -22,14 +15,14 @@ export default class TodoTextInput extends Component {
     }
 
     handleChange(text) {
-        console.log('change');
+        console.log('change')
         this.setState({
-            text: text
+            text: text,
         })
     }
 
     handleBlur(e) {
-        console.log('blur');
+        console.log('blur')
         if (!this.props.newTodo) {
             this.props.onSave(this.state.text)
         }
@@ -44,7 +37,7 @@ export default class TodoTextInput extends Component {
                     value={this.state.text}
                     onBlur={this.handleBlur.bind(this)}
                     onChangeText={this.handleChange.bind(this)}
-                    onEndEditing={this.handleSubmit.bind(this)} 
+                    onEndEditing={this.handleSubmit.bind(this)}
                 />
             </View>
         )
