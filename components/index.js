@@ -39,14 +39,6 @@ class Root extends Component {
     })
   }
 
-  // render() {
-  //   console.log(this.props)
-  //   return (
-  //     <View>
-  //       <Text>hello</Text>
-  //     </View>
-  //   )
-  // }
   render() {
     let { actions } = this.props
     let main
