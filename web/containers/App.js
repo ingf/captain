@@ -3,7 +3,7 @@ import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import Header from '../components/Header'
 import MainSection from '../components/MainSection'
-import * as TodoActions from 'app/actions'
+import * as actions from 'app/actions'
 
 class App extends Component {
   render() {
@@ -30,7 +30,7 @@ export default connect(
   },
   dispatch => {
     return {
-      actions: bindActionCreators(TodoActions, dispatch),
+      actions: bindActionCreators(actions, dispatch),
     }
   },
 )(App)

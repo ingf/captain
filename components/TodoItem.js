@@ -1,8 +1,5 @@
-import React, {
-    PanResponder,
-    StyleSheet, Component, View, Text,
-}
-from 'react-native'
+import React, { Component } from 'react'
+import { PanResponder, StyleSheet, View, Text } from 'react-native'
 import TodoTextInput from './TodoTextInput'
 import Swipeout from 'react-native-swipeout'
 
@@ -10,14 +7,12 @@ export default class TodoItem extends Component {
     constructor(props, context) {
         super(props, context)
         this.state = {
-            editing: false
+            editing: false,
         }
     }
 
     handleSave(id, text) {
-        let {
-            actions
-        } = this.props
+        let { actions } = this.props
 
         if (text.length === 0) {
             actions.deleteTodo(id)
@@ -26,14 +21,12 @@ export default class TodoItem extends Component {
         }
 
         this.setState({
-            editing: false
+            editing: false,
         })
     }
 
     render() {
-        let {
-            todo, actions
-        } = this.props
+        let { todo, actions } = this.props
         let that = this
         let element
 
@@ -54,8 +47,7 @@ export default class TodoItem extends Component {
                 })
             }
             element = (
-                <View 
-                    >
+                <View>
                     <Text style={item}>
                         {todo.text}
                     </Text>
@@ -63,39 +55,44 @@ export default class TodoItem extends Component {
             )
         }
 
-        let swipeoutBtns = [{
-            text: 'Edit',
-            backgroundColor: '#0f0',
-            onPress: () => {
-                that.setState({
-                    editing: true
-                })
-            }
-        }, {
-            text: 'Delete',
-            backgroundColor: '#aaa',
-            onPress: (data) => {
-                actions.deleteTodo(todo.id)
-            }
-        }, {
-            text: todo.completed ? 'UnDo' : 'Do',
-            backgroundColor: '#f00',
-            onPress: (data) => {
-                actions.completeTodo(todo.id)
-            }
-        }]
+        let swipeoutBtns = [
+            {
+                text: 'Edit',
+                backgroundColor: '#0f0',
+                onPress: () => {
+                    that.setState({
+                        editing: true,
+                    })
+                },
+            },
+            {
+                text: 'Delete',
+                backgroundColor: '#aaa',
+                onPress: data => {
+                    actions.deleteTodo(todo.id)
+                },
+            },
+            {
+                text: todo.completed ? 'UnDo' : 'Do',
+                backgroundColor: '#f00',
+                onPress: data => {
+                    actions.completeTodo(todo.id)
+                },
+            },
+        ]
 
         return (
-                <Swipeout ref="swipeout"
-                    autoClose={true}
-                    close={true}
-                    right={swipeoutBtns}
-                    backgroundColor="#fff"
-                >
+            <Swipeout
+                ref="swipeout"
+                autoClose={true}
+                close={true}
+                right={swipeoutBtns}
+                backgroundColor="#fff"
+            >
                 {element}
             </Swipeout>
-            )
-            // return element
+        )
+        // return element
     }
 }
 
@@ -105,6 +102,6 @@ let styles = StyleSheet.create({
         padding: 12,
         paddingLeft: 20,
         fontSize: 18,
-        fontWeight: '200'
+        fontWeight: '200',
     },
 })

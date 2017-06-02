@@ -2,13 +2,11 @@
  * Sample React Native App
  * https://github.com/facebook/react-native
  */
-
-const React = require('react-native')
-const { Provider } = require('react-redux')
-const App = require('./containers/App')
-const configureStore = require('./app/store/configureStore')
-
-const { Component, AppRegistry } = React
+import React, { Component } from 'react'
+import { AppRegistry } from 'react-native'
+import { Provider } from 'react-redux'
+import App from './containers/App'
+import configureStore from './app/store/configureStore'
 
 const store = configureStore()
 
@@ -16,7 +14,7 @@ class captain extends Component {
   render() {
     return (
       <Provider store={store}>
-        {() => <App />}
+        <App />
       </Provider>
     )
   }

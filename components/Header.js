@@ -1,16 +1,16 @@
-import React, {
+import React, { Component } from 'react'
+import {
   PanResponder,
   Component,
   View,
   Text,
   Image,
-  TextInput
-}
-from 'react-native'
+  TextInput,
+} from 'react-native'
+
 import TodoTextInput from './TodoTextInput'
 
 export default class Header extends Component {
-
   onChangeText(text) {
     this.props.addTodo(text)
   }
