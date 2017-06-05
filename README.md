@@ -1,10 +1,17 @@
 # captain
 
+### [Installing Dependencies](https://facebook.github.io/react-native/docs/getting-started.html)
+```
+brew install yarn
+brew install watchman
+yarn global add react-native-cli
+```
+
 ### Run:
 ```
 git clone https://github.com/ingf/captain.git 
 cd captain
-npm install
+yarn
 ```
 
 ### Develop for web

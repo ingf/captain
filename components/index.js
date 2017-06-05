@@ -11,8 +11,6 @@ import {
 import TodoTextInput from './TodoTextInput'
 import MainSection from './MainSection'
 
-const CIRCLE_HIGHLIGHT_COLOR = 'green'
-
 class Root extends Component {
   constructor() {
     super()

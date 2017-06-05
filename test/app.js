@@ -1,8 +1,4 @@
-import {
-  createStore,
-  applyMiddleware
-}
-from 'redux'
+import { createStore, applyMiddleware } from 'redux'
 import thunk from 'redux-thunk'
 import createLogger from 'redux-logger'
 import * as actions from '../app/actions'
@@ -10,11 +6,9 @@ import reducer from '../app/reducers'
 
 const logger = createLogger({
   level: 'info',
-  collapsed: true
+  collapsed: true,
 })
-const createStoreWithMiddleware = applyMiddleware(
-  thunk, logger
-)(createStore)
+const createStoreWithMiddleware = applyMiddleware(thunk, logger)(createStore)
 const initialState = {}
 const store = createStoreWithMiddleware(reducer, initialState)
 
